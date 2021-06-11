@@ -29,4 +29,3 @@ remove-helm:
 		kubectx docker-desktop
 		kubens default
 		helm uninstall sam-kafka
-

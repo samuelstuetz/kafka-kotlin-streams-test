@@ -1,17 +1,15 @@
-package sam.example.accounts
+package sam.example.accounts.repositories
 
 import kotlinx.coroutines.flow.Flow
-import org.apache.kafka.streams.KafkaStreams
 import org.apache.kafka.streams.StoreQueryParameters
 import org.apache.kafka.streams.state.QueryableStoreTypes
 import org.apache.kafka.streams.state.ReadOnlyWindowStore
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties
 import org.springframework.kafka.config.StreamsBuilderFactoryBean
-import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Component
+import sam.example.accounts.*
 import sam.example.accounts.configs.KafkaEventConfig
-import sam.example.accounts.repositories.StreamCtx
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneOffset

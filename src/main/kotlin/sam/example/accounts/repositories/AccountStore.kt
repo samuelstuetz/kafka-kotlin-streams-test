@@ -1,21 +1,15 @@
-package sam.example.accounts
+package sam.example.accounts.repositories
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
-import org.apache.kafka.streams.KafkaStreams
 import org.apache.kafka.streams.StoreQueryParameters
 import org.apache.kafka.streams.state.QueryableStoreTypes
 import org.apache.kafka.streams.state.ReadOnlyKeyValueStore
 import org.springframework.kafka.config.StreamsBuilderFactoryBean
-import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Component
+import sam.example.accounts.*
 import sam.example.accounts.configs.KafkaAccountConfig
-import sam.example.accounts.repositories.IdSource
-import sam.example.accounts.repositories.StreamCtx
-import java.time.LocalDate
-import java.time.ZoneOffset
 
 interface AccountStore {
     suspend fun findOne(id: Long): Account?

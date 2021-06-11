@@ -1,4 +1,4 @@
-package sam.example.accounts
+package sam.example.accounts.repositories
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -10,6 +10,8 @@ import org.apache.kafka.common.serialization.LongSerializer
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.kafka.common.utils.Utils
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties
+import sam.example.accounts.Event
+import sam.example.accounts.asEvent
 import java.time.Duration
 import java.util.*
 

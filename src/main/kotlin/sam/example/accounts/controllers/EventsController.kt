@@ -3,6 +3,7 @@ package sam.example.accounts.controllers
 import kotlinx.coroutines.flow.Flow
 import org.springframework.web.bind.annotation.*
 import sam.example.accounts.*
+import sam.example.accounts.repositories.EventStore
 import java.time.Instant
 import java.time.ZoneOffset
 

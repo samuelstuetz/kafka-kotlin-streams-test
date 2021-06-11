@@ -20,19 +20,8 @@ import java.time.Duration
 @EnableKafkaStreams
 class KafkaStreamsTopology(
     //add value annotations
-    val eventTopicTTLDays: Long = 30L,
     private val eventWindowSize: Duration = Duration.ofDays(1),
-    private val eventRetentionDuration: Duration = Duration.ofDays(30),
 ) : Logging {
-
-    val log = logger()
-
-    //don't bother with putting configs in multipel location now
-    private val dailyStatsWindowedStore: WindowBytesStoreSupplier =
-        Stores.persistentWindowStore(
-            NamedStores.daily_stats_windowed.toString(),
-            eventRetentionDuration, eventWindowSize, false
-        )
 
     @Bean
     fun accountTableEventSourced(
