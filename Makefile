@@ -1,8 +1,8 @@
 .PHONY: init-helm remove-helm test test-it clean
 run:
 		./gradlew bootRun
-test:
-		./gradlew test
+test: build
+		./gradlew test --rerun-tasks
 test-it:
 		bash interation-test.sh
 build:
