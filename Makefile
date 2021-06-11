@@ -1,4 +1,4 @@
-.PHONY: init-helm remove-helm test test-it clean
+.PHONY: init-helm remove-helm test test-it clean zip
 run:
 		./gradlew bootRun
 test: build
@@ -17,6 +17,9 @@ clean:
 		rm -rf build
 help:
 		@echo "please just read the make file"
+accEvents.zip:
+		zip -r accEvents.zip . -x '*\.idea/*' -x '*\.gradle/*' -x '*\.git/*'
+zip: accEvents.zip
 
 # ended up using ccloud essentially free and better cli
 init-helm:
