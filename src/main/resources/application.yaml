@@ -1,0 +1,28 @@
+spring:
+  kafka:
+    streams:
+      application-id: account6
+      properties:
+        replication.factor: 3
+        spring.json.use.type.headers: true
+        spring.json.trusted.packages: "*" # spring breaks stream serialization
+        default.key.serde: org.apache.kafka.common.serialization.Serdes$LongSerde
+        default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+    consumer:
+#      group-id: event-reader
+      auto-offset-reset: earliest
+      properties:
+        spring.json.use.type.headers: true
+        spring.json.trusted.packages: "*"
+        replication:
+          factor: 3
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.LongSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.json.add.type.headers: true
+
+server:
+  port: 8080
